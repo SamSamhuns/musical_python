@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div id="page" class="page">
+
+    <section class="main bg bg1">
+        <div class="layer">
+
+            <div class="bottom-grid">
+                <div class="logo">
+                    <h1> <a href='{% url 'home' %}' style="outline: rgba(233, 94, 94, 0.5) solid 2px;
+                        cursor: pointer; outline-offset: -2px;" role="textbox"><span
+                                class="fa fa-music" style="outline: none; cursor: inherit;"></span> Muse </a></h1>
+                </div>
+                <div class="links">
+                    <ul class="links-unordered-list">
+
+                        <li class="">
+                            <a href="https://www.linkedin.com/in/samridha-man-shrestha-89721412a/" class="editContent">About Me</a>
+                        </li>
+
+                        <li class="">
+                            <a href="mailto:sms1198@nyu.edu" class="editContent" style="outline: none; cursor: inherit;">
+                                Contact Me
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content-w3ls transparent">
+                <div class="text-center icon">
+                    <span class="fa fa-music" style="outline: none; cursor: inherit;"></span>
+                </div>
+                <div class='ack' style='font-size:40px' align='center'>
+                    Acknowledgements
+                </div>
+                <br>
+                <div class='ack'>
+                    <div class='ack_list_hdr'>
+                        Music Generation Using Deep Learning
+                    </div>
+                    <div class="ack_list_desc">
+                        https://github.com/gauravtheP/Music-Generation-Using-Deep-Learning<br>
+                        https://medium.com/datadriveninvestor/music-generation-using-deep-learning-85010fb982e2
+                    </div>
+                    <br><br>
+                    <div class='ack_list_hdr'>
+                        ABC Notation help
+                        Credits to the entire ABC community
+                    </div>
+                    <div class="ack_list_desc">
+                        http://abcnotation.org.uk/<br>
+                        http://abc.sourceforge.net/abcMIDI/original/abcguide.txt<br>
+                        https://ifdo.ca/~seymour/runabc/abcguide/abc2midi_guide.html
+                    </div>
+                    <br><br>
+                    <div class='ack_list_hdr'>
+                        abc2midi converter
+                        Credits to: leesavide
+                    </div>
+                    <div class="ack_list_desc">
+                        https://github.com/leesavide/abcmidi
+                    </div>
+                    <br><br>
+                    <div class='ack_list_hdr'>
+                        Background Photo credit: Rakutaro Ogiwara
+                    </div>
+                    <div class="ack_list_desc">
+                        https://www.flickr.com/photos/arselectronica/36350783815
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-grid1 transparent">
+                <div class="links">
+                    <ul class="links-unordered-list">
+                        <li class="">
+                            <a href='{% url 'home' %}' class="editContent" style="outline: none; cursor: inherit;">
+                                Home
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p>Design inspired by
+                        <a href="http://w3layouts.com">W3layouts</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock content %}
