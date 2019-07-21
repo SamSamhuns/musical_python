@@ -1,7 +1,7 @@
-# The make model and generate sequence functions are derived from
-# Gaurav Sharma' repo at (However the generate abc file functions were custom prepared,
-# Trained weights are also acquired from Gaurav's repo)
+# The make model and generate sequence functions are derived from the repo at
 # https://github.com/gauravtheP/Music-Generation-Using-Deep-Learning
+# The newer models independent of this original repo will consist of genre wise music generation
+# And a model with a deeper layers
 import os
 import sys
 import json
