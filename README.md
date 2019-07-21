@@ -16,7 +16,7 @@ __Note:__ For Chrome users:
 
 For web scraping midi files with selenium, download ChromeDriver for the appropriate Chrome version here <https://sites.google.com/a/chromium.org/chromedriver/downloads> and save it to the `scrap_midi` folder.
 
-## Acknowledgements
+## Acknowledgements and References
 
 -   I claim no rights to the abcmidi package. It was created by <a href='https://leesavide.github.io/'>leesavide</a> and is available at <https://github.com/leesavide/abcmidi>.
 -   LSTM Networks inspired from Gaurav Sharma's GitHub repository
