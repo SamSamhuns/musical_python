@@ -93,3 +93,12 @@ db.sqlite3
 
 ## Error logs
 logs
+
+## abcmidi executable files
+abc2midi
+abc2abc
+abcmatch
+mftext
+midi2abc
+midicopy
+yaps
