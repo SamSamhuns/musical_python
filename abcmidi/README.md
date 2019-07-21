@@ -1,13 +1,13 @@
 # abcMIDI: abc <-> MIDI conversion utilities
 
-| Program | Version No. |  Date Updated |
-|:--------|:------------|:--------------|
-|midi2abc |version 2.96 |August 03 2015 |
-|abc2midi |version 3.70 |August 11 2015 |
-|abc2abc  |version 1.81 |July 02 2015 |
-|yaps     |version 1.62 |May 13 2015 |
-|abcmatch |version 1.67 |May 13 2015 |
-|midicopy |version 1.18 |October 01 2013 |
+| Program  | Version No.  | Date Updated    |
+|:---------|:-------------|:----------------|
+| midi2abc | version 2.96 | August 03 2015  |
+| abc2midi | version 3.70 | August 11 2015  |
+| abc2abc  | version 1.81 | July 02 2015    |
+| yaps     | version 1.62 | May 13 2015     |
+| abcmatch | version 1.67 | May 13 2015     |
+| midicopy | version 1.18 | October 01 2013 |
 
 > 24th January 2002
 > 
@@ -44,30 +44,30 @@ This program takes a MIDI format file and converts it to something as close as p
 
 ## Features:
 
-* The key is chosen so as to minimize the number of accidentals. Alternatively, the user can specify the key numerically (a positive number is the number of sharps, a negative number is minus the number of flats).
-* Note length can be set by specifiying the total number of bars or the tempo of the piece. Alternatively the note length can be read from the file. However, by default it is deduced in a heuristic manner from the inter-note distances. This means that you do not have to use the MIDI clock as a metronome when playing in a tune from a keyboard. 
-* Barlines are automatically inserted. The user specifies the number of measures in the anacrusis before the first barline and the time signature.
-* The program can guess how many beats there should be in the anacrusis, either by looking for the first strong note or minimizing the number of notes split by a tie across a barline.
-* Where a note extends beyond a bar break, it is split into two tied notes.
-* The output has 4 bars per line.
-* Enough accidental signs are put in the music to ensure that no pitch errors occur if a barline is added or deleted.
-* The program attempts to group notes sensibly in each bar.
-* Triplets and broken rhythm (`a>b`) are supported.
-* Chords are identified.
-* Text information from the original MIDI file is included as comments.
-* The `-c` option can be used to select only 1 MIDI channel. Events on other channels are ignored.
+*   The key is chosen so as to minimize the number of accidentals. Alternatively, the user can specify the key numerically (a positive number is the number of sharps, a negative number is minus the number of flats).
+*   Note length can be set by specifiying the total number of bars or the tempo of the piece. Alternatively the note length can be read from the file. However, by default it is deduced in a heuristic manner from the inter-note distances. This means that you do not have to use the MIDI clock as a metronome when playing in a tune from a keyboard. 
+*   Barlines are automatically inserted. The user specifies the number of measures in the anacrusis before the first barline and the time signature.
+*   The program can guess how many beats there should be in the anacrusis, either by looking for the first strong note or minimizing the number of notes split by a tie across a barline.
+*   Where a note extends beyond a bar break, it is split into two tied notes.
+*   The output has 4 bars per line.
+*   Enough accidental signs are put in the music to ensure that no pitch errors occur if a barline is added or deleted.
+*   The program attempts to group notes sensibly in each bar.
+*   Triplets and broken rhythm (`a>b`) are supported.
+*   Chords are identified.
+*   Text information from the original MIDI file is included as comments.
+*   The `-c` option can be used to select only 1 MIDI channel. Events on other channels are ignored.
 
-### What midi2abc does not do :
+### What midi2abc does not do
 
-* Supply tune title, composer or any other field apart from `X:` , `K:`, `Q:`, `M:` and `L:` - these must be added by hand afterwards, though they may have been included in the text of the MIDI file.
-* Support duplets, quadruplets, other esoteric features.
-* Support mid-tune key or meter changes.
-* Deduce repeats. The output is just the notes in the input file.
-* Recover an abc tune as supplied to `abc2midi`. However, if you want to do this, "`midi2abc -xa -f file.mid`" comes close.
+*   Supply tune title, composer or any other field apart from `X:` , `K:`, `Q:`, `M:` and `L:` - these must be added by hand afterwards, though they may have been included in the text of the MIDI file.
+*   Support duplets, quadruplets, other esoteric features.
+*   Support mid-tune key or meter changes.
+*   Deduce repeats. The output is just the notes in the input file.
+*   Recover an abc tune as supplied to `abc2midi`. However, if you want to do this, "`midi2abc -xa -f file.mid`" comes close.
 
 `midi2abc`
 
-## Usage :
+## Usage
 
 ```
 midi2abc <options>
@@ -164,24 +164,24 @@ Usage : abc2midi <abc file> [reference number] [-c] [-v] [-o filename]
 
 The default action is to write a MIDI file for each abc tune with the filename `<stem>N.mid`, where `<stem>` is the filestem of the abc file and N is the tune reference number. If the `-o` option is used, only one file is written. This is the tune specified by the reference number or, if no reference number is given, the first tune in the file. The `-Q` parameter sets the default tempo in event the `Q:` command is not given in the abc header. The program accepts both the deprecated (eg. `!trill!`) and standard (`+trill+`) notation for decorations. Older versions of this program handled the defunct convention for chords (i.e `+G2B2D2+` instead of `[GBD]2`). If you need to handle the older notation, include the `-OCC` flag; however the program will not accept the standard notation for decorations. Broken rhythms indicated by `>` or `<` (eg. `A > B`) assume a the hornpipe ratio of 2:1 rather than 3:1. To change it to 3:1 include the `-RS` flag.  
 
-## Features :
+## Features
 
-* Broken rythms (>, <), chords, n-tuples, slurring, ties, staccatto notes, repeats, in-tune tempo/length/meter changes are all supported.
-* R:hornpipe or r:hornpipe is recognized and note timings are adjusted to give a broken rhythm (ab is converted to a>b).
-* Most errors in the abc input will generate a suitable error message in the output and the converter keeps going.
-* Comments and text fields in the abc source are converted to text events in the MIDI output
-* If guitar chords are present, they are used to generate an accompaniment in the MIDI output.
-* If there are mis-matched repeat signs in the abc, the program attempts to fix them. However, it will not attempt this if a multi-part tune  description has been used or if multiple voices are in use.
-* Karaoke MIDI files can be generated by using the w: field to include lyrics.
-* Nonnumeric voice ids, eg V: soprano, as described as proposed for the new abc standard is handled.
-* Invisible rests specified as x, are treated as normal rests (`z`).
-* There are some extensions to the abc syntax of the form
+*   Broken rythms (>, <), chords, n-tuples, slurring, ties, staccatto notes, repeats, in-tune tempo/length/meter changes are all supported.
+*   R:hornpipe or r:hornpipe is recognized and note timings are adjusted to give a broken rhythm (ab is converted to a>b).
+*   Most errors in the abc input will generate a suitable error message in the output and the converter keeps going.
+*   Comments and text fields in the abc source are converted to text events in the MIDI output
+*   If guitar chords are present, they are used to generate an accompaniment in the MIDI output.
+*   If there are mis-matched repeat signs in the abc, the program attempts to fix them. However, it will not attempt this if a multi-part tune  description has been used or if multiple voices are in use.
+*   Karaoke MIDI files can be generated by using the w: field to include lyrics.
+*   Nonnumeric voice ids, eg V: soprano, as described as proposed for the new abc standard is handled.
+*   Invisible rests specified as x, are treated as normal rests (`z`).
+*   There are some extensions to the abc syntax of the form
 
     %%MIDI channel n
 
 These control channel and program selection, transposing and various other features of abc2midi. See the file abcguide.txt for more details.
 
-## Bugs and Limitations :
+## Bugs and Limitations
 
 * No field is inherited from above the X: field of the tune.
 * Where an accidental is applied to a tied note that extends across a barline, abc2midi requires that the note beyond the barline must be explicitly given an accidental e.g.
@@ -241,9 +241,9 @@ When using the `-P X` option, it may be necessary to insert some field commands 
 
 The output of abc2abc is printed to the screen. To save it to a file, use the redirection operator, e.g. `abc2abc file.abc -t 2 > newfile.abc`
 
-### Known problems:
+### Known problems
 
-* When using the `-n` option on a program with lyrics, a barline in a `w:` field may be carried forward to the next `w:` field.
+*   When using the `-n` option on a program with lyrics, a barline in a `w:` field may be carried forward to the next `w:` field.
 
 ## `mftext` - MIDI file to text
 
@@ -261,7 +261,7 @@ program.
 
 `midicopy` is a stand alone application which copies a midi file or part of a midi file to a new midi file. If you run it with no parameters, a short description shown below will appear.
 
-### Usage:
+### Usage
 
 ```
 midicopy <options> input.mid output.mid
