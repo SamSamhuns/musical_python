@@ -1,4 +1,6 @@
+Django==2.2.3
 Keras==2.2.4
+requests==2.22.0
 setuptools==41.0.1
 selenium==3.141.0
 tensorflow==1.14.0
