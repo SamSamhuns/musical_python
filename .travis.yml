@@ -3,6 +3,8 @@ python:
   - "3.6"
 install:
   - pip install -r requirements.txt
+dist: 
+  xenial
 script:
   python manage.py migrate
   python manage.py runserver
