@@ -10,7 +10,7 @@ pin: True
 
 # set the default branch
 # default: empty, the default branch on GitHub
-branch: dev
+### branch: dev
 
 # update schedule
 # default: empty
@@ -46,8 +46,8 @@ label_prs: update
 # assign users to pull requests, default is not set
 # requires private repo permissions, even on public repos
 # default: empty
-assignees:
- - Samridha
+# assignees:
+# - SamSamhuns
 
 # configure the branch prefix the bot is using
 # default: pyup-
@@ -55,7 +55,7 @@ assignees:
 
 # set a global prefix for PRs
 # default: empty
-pr_prefix: "Bug #12345"
+### pr_prefix: "Bug #12345"
 
 # allow to close stale PRs
 # default: True
