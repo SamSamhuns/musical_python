@@ -98,8 +98,8 @@ def find_artists(genre):
                         ".//span/a")
 
                     with open('logs/downloaded_songs.txt', 'a') as f:
-                        log = "artist = " + str(artist_name) + ", artist_list_index = " +\
-                            str(list_index) + ", song_list_index = " +\
+                        log = "artist_list_index = " + str(list_index) + ", artist = " + \
+                            str(artist_name) + ", song_list_index = " +\
                             str(song_list_index) + ', ' + \
                             song_download_link.text
                         print(log, file=f)
