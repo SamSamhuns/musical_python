@@ -1,5 +1,7 @@
 # musical_python
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cbad26fbce4445579aa96af35e0d0b4b)](https://www.codacy.com/app/samhunsadamant/musical_python?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=SamSamhuns/musical_python&amp;utm_campaign=Badge_Grade)
+
 Creating music though LSTM Recurrent Neural Networks.
 
 <img src='img/laptop-macbook-apple-table-music-technology-1079002-pxhere.com.jpg'></img>
