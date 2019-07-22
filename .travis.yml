@@ -6,8 +6,8 @@ install:
 dist: 
   xenial
 script:
-  python manage.py migrate
-  python manage.py runserver
+  - python manage.py migrate
+  - python manage.py runserver
 # before_install:
 #   - pip install codecov
 #   - pip install coverage
