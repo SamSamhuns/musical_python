@@ -85,14 +85,17 @@ target/
 __pycache__/
 local_settings.py
 
-.env
 db.sqlite3
 
 ## Virtual envs
+.env
 *venv*
 
 ## Error logs
 logs
+
+## Midi files (Copyright Issues)
+data/midi_pop
 
 ## abcmidi executable files
 abc2midi
