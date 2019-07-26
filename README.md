@@ -30,12 +30,14 @@ The application can now be accessed through the localhost.
 
 __Important Note:__ To make sure the midi files are playable, the <http://www.midijs.net/lib/midi.js> file must be allowed to run on the browser.
 
-### Optional
+### Optional 
 **Midi web scraping information:** Pop music midi files are available in the data folder but to download midi files from other genres, use `python scrap_midi/ ./scrap_freemidi_org.py <genre> <Headless State 1/0>`
 
 **Note:** Only for Chrome users:
 
 For web scraping midi files with selenium, download ChromeDriver for the appropriate Chrome version here <https://sites.google.com/a/chromium.org/chromedriver/downloads> and save it to the `scrap_midi` folder.
+
+*The author not be responsible for any issues with Copyright Infrigements that might come with downloading of midi files.*
 
 ## Acknowledgements and References
 
