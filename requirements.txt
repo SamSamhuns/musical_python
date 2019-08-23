@@ -1,5 +1,5 @@
 Django==2.2.4
-Keras==2.2.4
+Keras==2.2.5
 requests==2.22.0
 setuptools==41.1.0.post1
 selenium==3.141.0
