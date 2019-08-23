@@ -1,6 +1,6 @@
 Django==2.2.4
 Keras==2.2.5
 requests==2.22.0
-setuptools==41.1.0.post1
+setuptools==41.2.0
 selenium==3.141.0
 tensorflow==1.14.0
