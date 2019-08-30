@@ -6,11 +6,11 @@ import hashlib
 
 
 def md5sum(filename, blocksize=65536):
-    hash = hashlib.md5()
+    hashmd5 = hashlib.md5()
     with open(filename, "rb") as f:
         for block in iter(lambda: f.read(blocksize), b""):
-            hash.update(block)
-    return hash.hexdigest()
+            hashmd5.update(block)
+    return hashmd5.hexdigest()
 
 
 def remove_duplicates(removed_files):
