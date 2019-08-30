@@ -21,7 +21,7 @@ $ pip install -r requirements
 
 -   The `abc2midi` executable must be compiled on your host OS. Change to the top directory (`musical_python/`) and run `(cd abcmidi && make && mv ./abc2midi ../ && cd ..)` for abc2midi compilation.
 
-```bash
+```shell
 $ python manage.py migrate
 $ python manage.py runserver
 ```
@@ -31,9 +31,9 @@ The application can now be accessed through the localhost.
 __Important Note:__ To make sure the midi files are playable, the <http://www.midijs.net/lib/midi.js> file must be allowed to run on the browser.
 
 ### Optional 
-**Midi web scraping information:** Pop music midi files are available in the data folder but to download midi files from other genres, use `python scrap_midi/ ./scrap_freemidi_org.py <genre> <Headless State 1/0>`
+__Midi web scraping information:__ Pop music midi files are available in the data folder but to download midi files from other genres, use `python scrap_midi/ ./scrap_freemidi_org.py <genre> <Headless State 1/0>`
 
-**Note:** Only for Chrome users:
+__Note:__ Only for Chrome users:
 
 For web scraping midi files with selenium, download ChromeDriver for the appropriate Chrome version here <https://sites.google.com/a/chromium.org/chromedriver/downloads> and save it to the `scrap_midi` folder.
 
