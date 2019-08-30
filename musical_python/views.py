@@ -1,14 +1,9 @@
 from django.shortcuts import render
-from django.http import JsonResponse
 from django.contrib import messages
 
 import generate_abc
-import numpy as np
 import subprocess
-import requests
 import random
-import json
-import sys
 import os
 
 os.system('chmod u+rwx abc2midi')  # Make abc2midi executable
