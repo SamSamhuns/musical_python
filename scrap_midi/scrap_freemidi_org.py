@@ -3,12 +3,10 @@ import sys
 import time
 import traceback
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
 from selenium.webdriver.support import ui
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # Warning download does not currently work with HEADLESS MODE
@@ -48,7 +46,7 @@ driver = webdriver.Chrome(executable_path=CHROMEDRIVER_PATH,
 def find_artists(genre):
     # Value Hardcoded as the entire script will be specific to freemidi.org
     driver.get("https://freemidi.org/genre-" + genre)
-    print(f"driver.title = {driver.title}") if (DEBUG) else print('', end='')
+    # print(f"driver.title = {driver.title}") if (DEBUG) else print('', end='')
 
     # div containing artists
     mainContent = driver.find_element_by_xpath("//div[@id='mainContent']")
