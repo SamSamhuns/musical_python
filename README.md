@@ -2,7 +2,6 @@
 
 [![Updates](https://pyup.io/repos/github/SamSamhuns/musical_python/shield.svg)](https://pyup.io/repos/github/SamSamhuns/musical_python/)
 [![Python 3](https://pyup.io/repos/github/SamSamhuns/musical_python/python-3-shield.svg)](https://pyup.io/repos/github/SamSamhuns/musical_python/)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/cbad26fbce4445579aa96af35e0d0b4b)](https://www.codacy.com/app/samhunsadamant/musical_python?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=SamSamhuns/musical_python&amp;utm_campaign=Badge_Grade)
 
 Creating music though LSTM Recurrent Neural Networks.
 
