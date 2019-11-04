@@ -1,4 +1,4 @@
-Django==2.2.6
+Django==2.2.7
 Keras==2.3.1
 requests==2.22.0
 setuptools==41.6.0
