@@ -70,7 +70,7 @@ def find_artists(genre):
                         ".//div/a[2]")[list_index].text
                 except:
                     print(f"Artist list page index {list_index} out of range")
-                    list_indexex += 1
+                    list_index += 1
                     continue
                 # goto artist page
                 mainContent.find_elements_by_xpath(
