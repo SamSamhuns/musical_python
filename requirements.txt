@@ -3,4 +3,4 @@ Keras==2.4.3
 requests==2.25.1
 setuptools==53.0.0
 selenium==3.141.0
-tensorflow==2.4.0
+tensorflow==2.4.1
