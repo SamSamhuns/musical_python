@@ -1,6 +1,6 @@
-Django==3.2.4
+Django==3.2.6
 Keras==2.4.3
-requests==2.25.1
-setuptools==57.0.0
+requests==2.26.0
+setuptools==57.4.0
 selenium==3.141.0
 tensorflow==2.5.0
