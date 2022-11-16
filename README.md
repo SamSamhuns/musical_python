@@ -25,6 +25,7 @@ cd abcmidi
 make
 mv abc2midi ../
 cd ..
+chmod u+rwx abc2midi
 ```
 
 -   Migrate and start Django server
@@ -34,7 +35,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-The application can now be accessed through the localhost.
+The application can now be accessed on the localhost.
 
 **Important Note:** To make sure the midi files are playable, the <http://www.midijs.net/lib/midi.js> file must be allowed to run on the browser.
 
@@ -53,7 +54,7 @@ _The author not be responsible for any issues with Copyright Infrigements that m
 <small>
 
 -   I claim no rights to the abcmidi package. It was created by <a href='https://leesavide.github.io/'>leesavide</a> and is available at <https://github.com/leesavide/abcmidi>.
--   Classicial music ABC notation from the ABC version of the Nottingham Music Database maintained by James Allwright <http://abc.sourceforge.net/NMD/>
+-   Classical music ABC notation from the ABC version of the Nottingham Music Database maintained by James Allwright <http://abc.sourceforge.net/NMD/>
 -   Midi sound samples for pop genre downloaded from <https://freemidi.org>
 -   LSTM Networks inspired from Gaurav Sharma's GitHub repository
 -   ABC music foundation for its documentation

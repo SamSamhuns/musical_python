@@ -4,11 +4,9 @@ from django.contrib import messages
 import generate_abc
 import subprocess
 import random
-import os
 
-os.system('chmod u+rwx abc2midi')  # Make abc2midi executable
 
-# Create your views here.
+# Create views here.
 
 
 def home(request):
@@ -26,7 +24,7 @@ def references(request):
 def abc_to_midi(abc_file):
     '''Convert abc to midi'''
     cmd = "./abc2midi " + abc_file + " -o static/midi/music.midi"
-    subprocess.Popen(cmd, shell=True, executable='/bin/bash',
+    subprocess.Popen(cmd, shell=False, executable='/bin/bash',
                      stdout=subprocess.PIPE)
 
 
