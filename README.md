@@ -1,6 +1,5 @@
 # musical_python
 
-[![Updates](https://pyup.io/repos/github/SamSamhuns/musical_python/shield.svg)](https://pyup.io/repos/github/SamSamhuns/musical_python/)
 [![Python 3](https://pyup.io/repos/github/SamSamhuns/musical_python/python-3-shield.svg)](https://pyup.io/repos/github/SamSamhuns/musical_python/)
 
 Creating music though LSTM Recurrent Neural Networks.
@@ -10,10 +9,10 @@ Creating music though LSTM Recurrent Neural Networks.
 ## Installation and setup
 
 ```bash
-$ python -m pip install --upgrade pip
-$ python -m venv venv
-$ source venv/bin/activate
-$ pip install -r requirements.txt
+python -m pip install --upgrade pip
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## Starting Django Server
@@ -22,16 +21,17 @@ $ pip install -r requirements.txt
 
 ```shell
 # change to top directory (`musical_python/`)
-$ cd abcmidi
-$ make
-$ mv ./abc2midi ../
+cd abcmidi
+make
+mv abc2midi ../
+cd ..
 ```
 
 -   Migrate and start Django server
 
 ```shell
-$ python manage.py migrate
-$ python manage.py runserver
+python manage.py migrate
+python manage.py runserver
 ```
 
 The application can now be accessed through the localhost.

@@ -2,9 +2,9 @@
 # https://github.com/gauravtheP/Music-Generation-Using-Deep-Learning
 # The newer models independent of this original repo will consist of genre wise music generation
 # And a model with a deeper layers
-from keras.layers import LSTM, Dropout, Dense, Activation, Embedding
-from keras.models import Sequential
-from keras import backend
+from tensorflow.keras.layers import LSTM, Dropout, Dense, Activation, Embedding
+from tensorflow.keras.models import Sequential
+from tensorflow.keras import backend
 import numpy as np
 import os
 import sys
