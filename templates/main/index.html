@@ -1,331 +1,331 @@
 {% extends "base.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% block content %}
-    <div id="page" class="page">
-        <section class="main bg bg1">
-            <div class="layer">
-                <div class="bottom-grid">
-                    <div class="logo">
-                        <h1> <a href='{% url "home" %}' style="outline: rgba(233. 94. 94. 0.5) solid 2px;
+<div id="page" class="page">
+  <section class="main bg bg1">
+    <div class="layer">
+      <div class="bottom-grid">
+        <div class="logo">
+          <h1> <a href='{% url "home" %}' style="outline: rgba(233. 94. 94. 0.5) solid 2px;
                             cursor: pointer; outline-offset: -2px;">
-                            <span class="fa fa-music" style="outline: none; cursor: inherit;"></span> MuPy </a></h1>
-                    </div>
-                    <div class="links">
-                        <ul class="links-unordered-list">
+              <span class="fa fa-music" style="outline: none; cursor: inherit;"></span> MuPy </a></h1>
+        </div>
+        <div class="links">
+          <ul class="links-unordered-list">
 
-                            <li class="">
-                                <a href="#" class="editContent">About Me</a>
-                            </li>
+            <li class="">
+              <a href="#" class="editContent">About Me</a>
+            </li>
 
-                            <li class="">
-                                <a href="#" class="editContent" style="outline: none; cursor: inherit;">
-                                    Contact Me
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="content-w3ls transparent">
-                    <div class="text-center icon">
-                        <span class="fa fa-music" style="outline: none; cursor: inherit;"></span>
-                    </div>
-                    <div id='app_description' align='center'>
-                        Welcome to Musical Python. An application that generates music
-                        on its own with <a href='https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5'>
-                            LSTM Recurrent Neural Networks</a>.
-                        Check out the Instrument List and choose one number and generate music. Wait for page to reload, then hit PLAY!
-                    </div><br>
+            <li class="">
+              <a href="#" class="editContent" style="outline: none; cursor: inherit;">
+                Contact Me
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content-w3ls transparent">
+        <div class="text-center icon">
+          <span class="fa fa-music" style="outline: none; cursor: inherit;"></span>
+        </div>
+        <div id='app_description' align='center'>
+          Welcome to Musical Python. An application that generates music
+          on its own with <a href='https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5'>
+            LSTM Recurrent Neural Networks</a>.
+          Check out the Instrument List and choose one number and generate music. Wait for page to reload, then hit PLAY!
+        </div><br>
 
-                    <div class="content-bottom">
-                        <form action="submit" method="post">
-                            {% csrf_token %}
-                            <div class="field-group editContent">
-                                <div class="icon-field">
-                                    <span class="fa fa-chevron-circle-down" aria-hidden="true" style="outline: none; cursor: inherit;"></span>
-                                </div>
-                                <div class="wthree-field">
-                                    <input name="instrument" id="text1" type="number" value="" placeholder="Instrument No. (Required 1-128)" required>
-                                </div>
-                            </div>
-                            <div class="field-group editContent">
-                                <div class="icon-field">
-                                    <span class="fa fa-clock-o" aria-hidden="true" style="outline: none; cursor: inherit;"></span>
-                                </div>
-                                <div class="wthree-field">
-                                    <input name="duration" id="myInput" type="number" placeholder="Duration (Optional 1-3)">
-                                </div>
-                            </div>
-                            {% if messages %}
-                              <ul class="messages">
-                                {% for message in messages %}
-                                  <li align='center' style="font-size:11px;color:#8fe846;font-family: 'Open Sans', sans-serif;" class="{{ message.tags }}">{{ message }}</li>
-                                {% endfor %}
-                              </ul>
-                            {% endif %}
-                            <div class="wthree-field">
-                                <button name="submit" type="submit" value='Submit' class="btn" style='background:#7d2c22;border-radius: 12px;'>Generate Music</button>
-                                <button type="button" onClick="MIDIjs.play('{% static "midi/music.midi" %}');" class='btn' style='background:white;color:black'><i class="fa fa-play"></i> Play</button>
-                                <button type="button" onClick="MIDIjs.stop();" %}');" class='btn' style='background:#222;border-radius:100%'><i class="fa fa-stop"></i> STOP</button>
-                            </div>
-                            <br>
-                            <ul class="list-login-bottom">
-                                <li class="">
-                                    <a href="#" class="editContent" style="outline: none; cursor: inherit;">
-                                        GitHub
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a href='{% url 'instruments' %}' class="text-right editContent" style="outline: none; cursor: inherit;">
-                                        Instrument List
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </form>
-                        <br>
-                        <table class="table table-bordered table-hover table-condensed">
-                            <tbody>
-                                <tr>
-                                    <td>1. Acous Grand Piano</td>
-                                    <td>44. Contrabass</td>
-                                    <td>87. Lead 7 (fifths)</td>
-                                </tr>
-                                <tr>
-                                    <td>2. Bright Acoustic Piano</td>
-                                    <td>45. Tremolo Strings</td>
-                                    <td>88. Lead 8 (bass + lead)</td>
-                                </tr>
-                                <tr>
-                                    <td>3. Elec Grand Piano</td>
-                                    <td>46. Pizzicato Strings</td>
-                                    <td>89. Pad 1 (new age)</td>
-                                </tr>
-                                <tr>
-                                    <td>4. Honky-tonk Piano</td>
-                                    <td>47. Orchestral Harp</td>
-                                    <td>90. Pad 2 (warm)</td>
-                                </tr>
-                                <tr>
-                                    <td>5. Elec Piano 1</td>
-                                    <td>48. Timpani</td>
-                                    <td>91. Pad 3 (polysynth)</td>
-                                </tr>
-                                <tr>
-                                    <td>6. Elec Piano 2</td>
-                                    <td>49. String Ensb a</td>
-                                    <td>92. Pad 4 (choir)</td>
-                                </tr>
-                                <tr>
-                                    <td>7. Harpsichord</td>
-                                    <td>50. String Ensb b</td>
-                                    <td>93. Pad 5 (bowed)</td>
-                                </tr>
-                                <tr>
-                                    <td>8. Clavi</td>
-                                    <td>51. SynthStrings 1</td>
-                                    <td>94. Pad 6 (metallic)</td>
-                                </tr>
-                                <tr>
-                                    <td>9. Celesta</td>
-                                    <td>52. SynthStrings 2</td>
-                                    <td>95. Pad 7 (halo)</td>
-                                </tr>
-                                <tr>
-                                    <td>10. Glockenspiel</td>
-                                    <td>53. Choir Aahs</td>
-                                    <td>96. Pad 8 (sweep)</td>
-                                </tr>
-                                <tr>
-                                    <td>11. Music Box</td>
-                                    <td>54. Voice Oohs</td>
-                                    <td>97. FX 1 (rain)</td>
-                                </tr>
-                                <tr>
-                                    <td>12. Vibraphone</td>
-                                    <td>55. Synth Voice</td>
-                                    <td>98. FX 2 (soundtrack)</td>
-                                </tr>
-                                <tr>
-                                    <td>13. Marimba</td>
-                                    <td>56. Orchestra Hit</td>
-                                    <td>99. FX 3 (crystal)</td>
-                                </tr>
-                                <tr>
-                                    <td>14. Xylophone</td>
-                                    <td>57. Trumpet</td>
-                                    <td>100. FX 4 (atmosphere)</td>
-                                </tr>
-                                <tr>
-                                    <td>15. Tubular Bells</td>
-                                    <td>58. Trombone</td>
-                                    <td>101. FX 5 (brightness)</td>
-                                </tr>
-                                <tr>
-                                    <td>16. Dulcimer</td>
-                                    <td>59. Tuba</td>
-                                    <td>102. FX 6 (goblins)</td>
-                                </tr>
-                                <tr>
-                                    <td>17. Drawbar Organ</td>
-                                    <td>60. Muted Trumpet</td>
-                                    <td>103. FX 7 (echoes)</td>
-                                </tr>
-                                <tr>
-                                    <td>18. Percussive Organ</td>
-                                    <td>61. French Horn</td>
-                                    <td>104. FX 8 (sci-fi)</td>
-                                </tr>
-                                <tr>
-                                    <td>19. Rock Organ</td>
-                                    <td>62. Brass Section</td>
-                                    <td>105. Sitar</td>
-                                </tr>
-                                <tr>
-                                    <td>20. Church Organ</td>
-                                    <td>63. SynthBrass 1</td>
-                                    <td>106. Banjo</td>
-                                </tr>
-                                <tr>
-                                    <td>21. Reed Organ</td>
-                                    <td>64. SynthBrass 2</td>
-                                    <td>107. Shamisen</td>
-                                </tr>
-                                <tr>
-                                    <td>22. Accordion</td>
-                                    <td>65. Soprano Sax</td>
-                                    <td>108. Koto</td>
-                                </tr>
-                                <tr>
-                                    <td>23. Harmonica</td>
-                                    <td>66. Alto Sax</td>
-                                    <td>109. Kalimba</td>
-                                </tr>
-                                <tr>
-                                    <td>24. Tango Accordion</td>
-                                    <td>67. Tenor Sax</td>
-                                    <td>110. Bag pipe</td>
-                                </tr>
-                                <tr>
-                                    <td>25. Acous Guitar (nylon)</td>
-                                    <td>68. Baritone Sax</td>
-                                    <td>111. Fiddle</td>
-                                </tr>
-                                <tr>
-                                    <td>26. Acous Guitar (steel)</td>
-                                    <td>69. Oboe</td>
-                                    <td>112. Shanai</td>
-                                </tr>
-                                <tr>
-                                    <td>27. Elec Guitar (jazz)</td>
-                                    <td>70. English Horn</td>
-                                    <td>113. Tinkle Bell</td>
-                                </tr>
-                                <tr>
-                                    <td>28. Elec Guitar (clean)</td>
-                                    <td>71. Bassoon</td>
-                                    <td>114. Agogo</td>
-                                </tr>
-                                <tr>
-                                    <td>29. Elec Guitar (muted)</td>
-                                    <td>72. Clarinet</td>
-                                    <td>115. Steel Drums</td>
-                                </tr>
-                                <tr>
-                                    <td>30. Overdriven Guitar</td>
-                                    <td>73. Piccolo</td>
-                                    <td>116. Woodblock</td>
-                                </tr>
-                                <tr>
-                                    <td>31. Distortion Guitar</td>
-                                    <td>74. Flute</td>
-                                    <td>117. Taiko Drum</td>
-                                </tr>
-                                <tr>
-                                    <td>32. Guitar harmonics</td>
-                                    <td>75. Recorder</td>
-                                    <td>118. Melodic Tom</td>
-                                </tr>
-                                <tr>
-                                    <td>33. Acoustic Bass</td>
-                                    <td>76. Pan Flute</td>
-                                    <td>119. Synth Drum</td>
-                                </tr>
-                                <tr>
-                                    <td>34. Elec Bass (finger)</td>
-                                    <td>77. Blown Bottle</td>
-                                    <td>120. Reverse Cymbal</td>
-                                </tr>
-                                <tr>
-                                    <td>35. Elec Bass (pick)</td>
-                                    <td>78. Shakuhachi</td>
-                                    <td>121. Guitar Fret Noise</td>
-                                </tr>
-                                <tr>
-                                    <td>36. Fretless Bass</td>
-                                    <td>79. Whistle</td>
-                                    <td>122. Breath Noise</td>
-                                </tr>
-                                <tr>
-                                    <td>37. Slap Bass 1</td>
-                                    <td>80. Ocarina</td>
-                                    <td>123. Seashore</td>
-                                </tr>
-                                <tr>
-                                    <td>38. Slap Bass 2</td>
-                                    <td>81. Lead 1 (square)</td>
-                                    <td>124. Bird Tweet</td>
-                                </tr>
-                                <tr>
-                                    <td>39. Synth Bass 1</td>
-                                    <td>82. Lead 2 (sawtooth)</td>
-                                    <td>125. Telephone Ring</td>
-                                </tr>
-                                <tr>
-                                    <td>40. Synth Bass 2</td>
-                                    <td>83. Lead 3 (calliope)</td>
-                                    <td>126. Helicopter</td>
-                                </tr>
-                                <tr>
-                                    <td>41. Violin</td>
-                                    <td>84. Lead 4 (chiff)</td>
-                                    <td>127. Applause</td>
-                                </tr>
-                                <tr>
-                                    <td>42. Viola</td>
-                                    <td>85. Lead 5 (charang)</td>
-                                    <td>128. Gunshot</td>
-                                </tr>
-                                <tr>
-                                    <td>43. Cello</td>
-                                    <td>86. Lead 6 (voice)</td>
-                                    <td> </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="bottom-grid1 transparent">
-                    <div class="links">
-                        <ul class="links-unordered-list">
-                            <li class="">
-                                <a href='{% url 'references' %}' class="editContent" style="outline: none; cursor: inherit;">
-                                    References
-                                </a>
-                            </li>
-
-
-                        </ul>
-                    </div>
-                    <div class="copyright">
-                        <p>Design inspired by
-                            <a href="http://w3layouts.com">W3layouts</a>
-                        </p>
-                    </div>
-                </div>
+        <div class="content-bottom">
+          <form action="submit" method="post">
+            {% csrf_token %}
+            <div class="field-group editContent">
+              <div class="icon-field">
+                <span class="fa fa-chevron-circle-down" aria-hidden="true" style="outline: none; cursor: inherit;"></span>
+              </div>
+              <div class="wthree-field">
+                <input name="instrument" id="text1" type="number" value="" placeholder="Instrument No. (Required 1-128)" required>
+              </div>
             </div>
-        </section>
+            <div class="field-group editContent">
+              <div class="icon-field">
+                <span class="fa fa-clock-o" aria-hidden="true" style="outline: none; cursor: inherit;"></span>
+              </div>
+              <div class="wthree-field">
+                <input name="duration" id="myInput" type="number" placeholder="Duration (Optional 1-3)">
+              </div>
+            </div>
+            {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+              <li align='center' style="font-size:11px;color:#8fe846;font-family: 'Open Sans', sans-serif;" class="{{ message.tags }}">{{ message }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+            <div class="wthree-field">
+              <button name="submit" type="submit" value='Submit' class="btn" style='background:#7d2c22;border-radius: 12px;'>Generate Music</button>
+              <button type="button" onClick="MIDIjs.play('{% static "midi/music.midi" %}');" class='btn' style='background:white;color:black'><i class="fa fa-play"></i> Play</button>
+              <button type="button" onClick="MIDIjs.stop();" %}');" class='btn' style='background:#222;border-radius:100%'><i class="fa fa-stop"></i> STOP</button>
+            </div>
+            <br>
+            <ul class="list-login-bottom">
+              <li class="">
+                <a href="#" class="editContent" style="outline: none; cursor: inherit;">
+                  GitHub
+                </a>
+              </li>
+              <li class="">
+                <a href='{% url 'instruments' %}' class="text-right editContent" style="outline: none; cursor: inherit;">
+                  Instrument List
+                </a>
+              </li>
+
+            </ul>
+          </form>
+          <br>
+          <table class="table table-bordered table-hover table-condensed">
+            <tbody>
+              <tr>
+                <td>1. Acous Grand Piano</td>
+                <td>44. Contrabass</td>
+                <td>87. Lead 7 (fifths)</td>
+              </tr>
+              <tr>
+                <td>2. Bright Acoustic Piano</td>
+                <td>45. Tremolo Strings</td>
+                <td>88. Lead 8 (bass + lead)</td>
+              </tr>
+              <tr>
+                <td>3. Elec Grand Piano</td>
+                <td>46. Pizzicato Strings</td>
+                <td>89. Pad 1 (new age)</td>
+              </tr>
+              <tr>
+                <td>4. Honky-tonk Piano</td>
+                <td>47. Orchestral Harp</td>
+                <td>90. Pad 2 (warm)</td>
+              </tr>
+              <tr>
+                <td>5. Elec Piano 1</td>
+                <td>48. Timpani</td>
+                <td>91. Pad 3 (polysynth)</td>
+              </tr>
+              <tr>
+                <td>6. Elec Piano 2</td>
+                <td>49. String Ensb a</td>
+                <td>92. Pad 4 (choir)</td>
+              </tr>
+              <tr>
+                <td>7. Harpsichord</td>
+                <td>50. String Ensb b</td>
+                <td>93. Pad 5 (bowed)</td>
+              </tr>
+              <tr>
+                <td>8. Clavi</td>
+                <td>51. SynthStrings 1</td>
+                <td>94. Pad 6 (metallic)</td>
+              </tr>
+              <tr>
+                <td>9. Celesta</td>
+                <td>52. SynthStrings 2</td>
+                <td>95. Pad 7 (halo)</td>
+              </tr>
+              <tr>
+                <td>10. Glockenspiel</td>
+                <td>53. Choir Aahs</td>
+                <td>96. Pad 8 (sweep)</td>
+              </tr>
+              <tr>
+                <td>11. Music Box</td>
+                <td>54. Voice Oohs</td>
+                <td>97. FX 1 (rain)</td>
+              </tr>
+              <tr>
+                <td>12. Vibraphone</td>
+                <td>55. Synth Voice</td>
+                <td>98. FX 2 (soundtrack)</td>
+              </tr>
+              <tr>
+                <td>13. Marimba</td>
+                <td>56. Orchestra Hit</td>
+                <td>99. FX 3 (crystal)</td>
+              </tr>
+              <tr>
+                <td>14. Xylophone</td>
+                <td>57. Trumpet</td>
+                <td>100. FX 4 (atmosphere)</td>
+              </tr>
+              <tr>
+                <td>15. Tubular Bells</td>
+                <td>58. Trombone</td>
+                <td>101. FX 5 (brightness)</td>
+              </tr>
+              <tr>
+                <td>16. Dulcimer</td>
+                <td>59. Tuba</td>
+                <td>102. FX 6 (goblins)</td>
+              </tr>
+              <tr>
+                <td>17. Drawbar Organ</td>
+                <td>60. Muted Trumpet</td>
+                <td>103. FX 7 (echoes)</td>
+              </tr>
+              <tr>
+                <td>18. Percussive Organ</td>
+                <td>61. French Horn</td>
+                <td>104. FX 8 (sci-fi)</td>
+              </tr>
+              <tr>
+                <td>19. Rock Organ</td>
+                <td>62. Brass Section</td>
+                <td>105. Sitar</td>
+              </tr>
+              <tr>
+                <td>20. Church Organ</td>
+                <td>63. SynthBrass 1</td>
+                <td>106. Banjo</td>
+              </tr>
+              <tr>
+                <td>21. Reed Organ</td>
+                <td>64. SynthBrass 2</td>
+                <td>107. Shamisen</td>
+              </tr>
+              <tr>
+                <td>22. Accordion</td>
+                <td>65. Soprano Sax</td>
+                <td>108. Koto</td>
+              </tr>
+              <tr>
+                <td>23. Harmonica</td>
+                <td>66. Alto Sax</td>
+                <td>109. Kalimba</td>
+              </tr>
+              <tr>
+                <td>24. Tango Accordion</td>
+                <td>67. Tenor Sax</td>
+                <td>110. Bag pipe</td>
+              </tr>
+              <tr>
+                <td>25. Acous Guitar (nylon)</td>
+                <td>68. Baritone Sax</td>
+                <td>111. Fiddle</td>
+              </tr>
+              <tr>
+                <td>26. Acous Guitar (steel)</td>
+                <td>69. Oboe</td>
+                <td>112. Shanai</td>
+              </tr>
+              <tr>
+                <td>27. Elec Guitar (jazz)</td>
+                <td>70. English Horn</td>
+                <td>113. Tinkle Bell</td>
+              </tr>
+              <tr>
+                <td>28. Elec Guitar (clean)</td>
+                <td>71. Bassoon</td>
+                <td>114. Agogo</td>
+              </tr>
+              <tr>
+                <td>29. Elec Guitar (muted)</td>
+                <td>72. Clarinet</td>
+                <td>115. Steel Drums</td>
+              </tr>
+              <tr>
+                <td>30. Overdriven Guitar</td>
+                <td>73. Piccolo</td>
+                <td>116. Woodblock</td>
+              </tr>
+              <tr>
+                <td>31. Distortion Guitar</td>
+                <td>74. Flute</td>
+                <td>117. Taiko Drum</td>
+              </tr>
+              <tr>
+                <td>32. Guitar harmonics</td>
+                <td>75. Recorder</td>
+                <td>118. Melodic Tom</td>
+              </tr>
+              <tr>
+                <td>33. Acoustic Bass</td>
+                <td>76. Pan Flute</td>
+                <td>119. Synth Drum</td>
+              </tr>
+              <tr>
+                <td>34. Elec Bass (finger)</td>
+                <td>77. Blown Bottle</td>
+                <td>120. Reverse Cymbal</td>
+              </tr>
+              <tr>
+                <td>35. Elec Bass (pick)</td>
+                <td>78. Shakuhachi</td>
+                <td>121. Guitar Fret Noise</td>
+              </tr>
+              <tr>
+                <td>36. Fretless Bass</td>
+                <td>79. Whistle</td>
+                <td>122. Breath Noise</td>
+              </tr>
+              <tr>
+                <td>37. Slap Bass 1</td>
+                <td>80. Ocarina</td>
+                <td>123. Seashore</td>
+              </tr>
+              <tr>
+                <td>38. Slap Bass 2</td>
+                <td>81. Lead 1 (square)</td>
+                <td>124. Bird Tweet</td>
+              </tr>
+              <tr>
+                <td>39. Synth Bass 1</td>
+                <td>82. Lead 2 (sawtooth)</td>
+                <td>125. Telephone Ring</td>
+              </tr>
+              <tr>
+                <td>40. Synth Bass 2</td>
+                <td>83. Lead 3 (calliope)</td>
+                <td>126. Helicopter</td>
+              </tr>
+              <tr>
+                <td>41. Violin</td>
+                <td>84. Lead 4 (chiff)</td>
+                <td>127. Applause</td>
+              </tr>
+              <tr>
+                <td>42. Viola</td>
+                <td>85. Lead 5 (charang)</td>
+                <td>128. Gunshot</td>
+              </tr>
+              <tr>
+                <td>43. Cello</td>
+                <td>86. Lead 6 (voice)</td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="bottom-grid1 transparent">
+        <div class="links">
+          <ul class="links-unordered-list">
+            <li class="">
+              <a href='{% url 'references' %}' class="editContent" style="outline: none; cursor: inherit;">
+                References
+              </a>
+            </li>
+
+
+          </ul>
+        </div>
+        <div class="copyright">
+          <p>Design inspired by
+            <a href="http://w3layouts.com">W3layouts</a>
+          </p>
+        </div>
+      </div>
     </div>
+  </section>
+</div>
 
 
 
