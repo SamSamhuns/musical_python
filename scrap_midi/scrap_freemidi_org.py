@@ -68,8 +68,8 @@ def find_artists(genre):
                         "//div[@id='mainContent']")
                     artist_name = mainContent.find_elements_by_xpath(
                         ".//div/a[2]")[list_index].text
-                except:
-                    print(f"Artist list page index {list_index} out of range")
+                except Exception as e:
+                    print(f"{e}: Artist list page index {list_index} out of range")
                     list_index += 1
                     continue
                 # goto artist page
@@ -95,8 +95,9 @@ def find_artists(genre):
                         # goto song download page
                         song_download_link = mainContentSong.find_elements_by_xpath(
                             ".//div[1]/div[@class='artist-container']/div[1]/div/div[@class='artist-song-cell']")[song_list_index]
-                    except:
-                        print(f"Song List index {song_list_index} out of range on page title {driver.title}")
+                    except Exception as e:
+                        print(
+                            f"{e}: Song List index {song_list_index} out of range on page title {driver.title}")
                         song_list_index += 1
                         continue
                     song_download_link = song_download_link.find_element_by_xpath(
@@ -118,8 +119,8 @@ def find_artists(genre):
                         midi_download_link = ui.WebDriverWait(driver, 10).until(
                             EC.element_to_be_clickable((By.XPATH, midi_download_link_str)))
 
-                    except:
-                        print("Download link absent")
+                    except Exception as e:
+                        print(f"{e}: Download link absent")
                         song_list_index += 1
                         driver.back()
                         continue
@@ -134,7 +135,8 @@ def find_artists(genre):
                         page_lists = driver.find_elements_by_xpath(
                             "//div[@id='mainContent']/div[1]/div[2]/div[2]/nav/ul/li")
                         page_count = len(page_lists)
-                        if page_count >= 4 and current_song_page < (page_count-1):  # if page_count == 3 then only one page exists
+                        # if page_count == 3 then only one page exists
+                        if page_count >= 4 and current_song_page < (page_count - 1):
                             current_song_page += 1
                             next_page_string = "//div[@id='mainContent']/div[1]/div[2]/div[2]/nav/ul/li[" \
                                 + str(current_song_page) + ']/a'
@@ -161,7 +163,6 @@ def find_artists(genre):
             traceback.print_exc()
             message = template.format(type(ex).__name__, ex.args)
             elog.write((message + '\n'))
-
 
 
 def main():

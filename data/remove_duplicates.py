@@ -25,8 +25,10 @@ def remove_duplicates(removed_files):
         else:
             hash_set.add(file_hash)
 
+
 def main(removed_files):
     remove_duplicates(removed_files)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -37,4 +39,4 @@ if __name__ == "__main__":
     print("Duplication Removal Complete")
     print("Removed files:")
     for files in removed_files:
-        print('\t',files)
+        print('\t', files)
