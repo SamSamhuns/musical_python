@@ -1,7 +1,5 @@
 # musical_python
 
-[![Python 3](https://pyup.io/repos/github/SamSamhuns/musical_python/python-3-shield.svg)](https://pyup.io/repos/github/SamSamhuns/musical_python/)
-
 Creating music though LSTM Recurrent Neural Networks.
 
 <img src='img/laptop-macbook-apple-table-music-technology-1079002-pxhere.com.jpg'></img>
