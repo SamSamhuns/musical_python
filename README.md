@@ -1,5 +1,7 @@
 # musical_python
 
+[![Django CI](https://github.com/SamSamhuns/musical_python/actions/workflows/main.yaml/badge.svg)](https://github.com/SamSamhuns/musical_python/actions/workflows/main.yaml)![python-3.10](https://img.shields.io/badge/python-3.10-blue)
+
 Creating music though LSTM Recurrent Neural Networks.
 
 ![](img/laptop-macbook-apple-table-music-technology-1079002-pxhere.com.jpg)
