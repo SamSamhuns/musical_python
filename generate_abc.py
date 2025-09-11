@@ -10,7 +10,7 @@ import os
 import sys
 import json
 
-sys.path.append('/home/runner/.site-packages/')
+sys.path.append("/home/runner/.site-packages/")
 
 
 charIndex_json = "static/json/char_to_index.json"
@@ -21,8 +21,7 @@ SEQ_LENGTH = 64
 def make_model(unique_chars):
     model = Sequential()
 
-    model.add(Embedding(input_dim=unique_chars,
-                        output_dim=512, batch_input_shape=(1, 1)))
+    model.add(Embedding(input_dim=unique_chars, output_dim=512, input_length=1))
 
     model.add(LSTM(256, return_sequences=True, stateful=True))
     model.add(Dropout(0.2))
@@ -47,7 +46,8 @@ def generate_sequence(initial_index, seq_length):
 
     backend.clear_session()
     model = make_model(unique_chars)
-    model.load_weights('static/weights/Weights_90.h5')
+    model.build(input_shape=(1, 1))
+    model.load_weights("static/weights/Weights_90.h5")
 
     sequence_index = [initial_index]
 
@@ -56,12 +56,11 @@ def generate_sequence(initial_index, seq_length):
         batch[0, 0] = sequence_index[-1]
 
         predicted_probs = model.predict_on_batch(batch).ravel()
-        sample = np.random.choice(
-            range(unique_chars), size=1, p=predicted_probs)
+        sample = np.random.choice(range(unique_chars), size=1, p=predicted_probs)
 
         sequence_index.append(sample[0])
     print(len(sequence_index))
-    seq = ''.join(index_to_char[c] for c in sequence_index)
+    seq = "".join(index_to_char[c] for c in sequence_index)
 
     cnt = 0
     for i in seq:
@@ -79,6 +78,7 @@ def generate_sequence(initial_index, seq_length):
 
     return seq2
 
+
 # ar = Any number between 0 to 86 which will be given as initial charcter to model for generating sequence
 # ln = The length of music sequence you want to generate. Typical number is between 300-600. Too small number will generate hardly generate any sequence
 # instr = The instrument code is detailed in static/csv/abcmidi_instrument_name
@@ -93,20 +93,20 @@ def generate_abc_file(ar, ln, instr):
     print("\nMUSIC SEQUENCE GENERATED: \n")
     print(music)
 
-    with open('static/abc/generated.abc', 'w') as abc:
-        if music.find('X:') == -1:
-            abc.write('X:1\n')
-        if music.find('T:') == -1:
-            abc.write('T:RNN generated\n')
-        if music.find('M:') == -1:
-            abc.write('M:3/4\n')
-        if music.find('L:') == -1:
-            abc.write('L:1/8\n')
-        if music.find('Q:') == -1:
-            abc.write('Q:1/4=120\n')
-        if music.find('W:') == -1:
+    with open("static/abc/generated.abc", "w") as abc:
+        if music.find("X:") == -1:
+            abc.write("X:1\n")
+        if music.find("T:") == -1:
+            abc.write("T:RNN generated\n")
+        if music.find("M:") == -1:
+            abc.write("M:3/4\n")
+        if music.find("L:") == -1:
+            abc.write("L:1/8\n")
+        if music.find("Q:") == -1:
+            abc.write("Q:1/4=120\n")
+        if music.find("W:") == -1:
             abc.write("W:Generated music\n")
-        if music.find('K:') == -1:
-            abc.write('K:C\n')
-        abc.write(f'%%MIDI program {instr}\n')
+        if music.find("K:") == -1:
+            abc.write("K:C\n")
+        abc.write(f"%%MIDI program {instr}\n")
         abc.write(music)

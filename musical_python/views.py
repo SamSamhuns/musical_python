@@ -10,35 +10,34 @@ import random
 
 
 def home(request):
-    return render(request, 'main/index.html')
+    return render(request, "main/index.html")
 
 
 def instruments(request):
-    return render(request, 'main/instruments.html')
+    return render(request, "main/instruments.html")
 
 
 def references(request):
-    return render(request, 'main/references.html')
+    return render(request, "main/references.html")
 
 
 def abc_to_midi(abc_file):
-    '''Convert abc to midi'''
+    """Convert abc to midi"""
     cmd = "./abc2midi " + abc_file + " -o static/midi/music.midi"
-    subprocess.Popen(cmd, shell=False, executable='/bin/bash',
-                     stdout=subprocess.PIPE)
+    subprocess.Popen(cmd, shell=False, executable="/bin/bash", stdout=subprocess.PIPE)
 
 
 def submit(request):
-    '''Func called after Form Submit button to convert abc to midi and play it'''
-    instrument = request.POST['instrument']
-    duration = request.POST['duration']
+    """Func called after Form Submit button to convert abc to midi and play it"""
+    instrument = request.POST["instrument"]
+    duration = request.POST["duration"]
     starting_seq = random.randint(0, 87)
 
-    if duration == '1':
+    if duration == "1":
         duration = 500
-    elif duration == '2':
+    elif duration == "2":
         duration = 700
-    elif duration == '3':
+    elif duration == "3":
         duration = 900
     else:
         duration = random.randint(500, 900)
@@ -47,5 +46,6 @@ def submit(request):
 
     abc_to_midi("static/abc/generated.abc")
     messages.success(
-        request, 'You can press PLAY now! (You might have to press PLAY twice)')
-    return render(request, 'main/index.html')
+        request, "You can press PLAY now! (You might have to press PLAY twice)"
+    )
+    return render(request, "main/index.html")
