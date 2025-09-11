@@ -2,9 +2,17 @@
 
 Creating music though LSTM Recurrent Neural Networks.
 
-<img src='img/laptop-macbook-apple-table-music-technology-1079002-pxhere.com.jpg'></img>
+![](img/laptop-macbook-apple-table-music-technology-1079002-pxhere.com.jpg)
 
 ## Installation and setup
+
+Via `poetry`:
+
+```bash
+poetry install
+```
+
+Via `pip`:
 
 ```bash
 python -m pip install --upgrade pip
@@ -51,15 +59,14 @@ _The author not be responsible for any issues with Copyright Infrigements that m
 
 <small>
 
--   I claim no rights to the abcmidi package. It was created by <a href='https://leesavide.github.io/'>leesavide</a> and is available at <https://github.com/leesavide/abcmidi>.
--   Classical music ABC notation from the ABC version of the Nottingham Music Database maintained by James Allwright <http://abc.sourceforge.net/NMD/>
--   Midi sound samples for pop genre downloaded from <https://freemidi.org>
--   LSTM Networks inspired from Gaurav Sharma's GitHub repository
--   ABC music foundation for its documentation
--   Medium: Neural Nets for Generating Music: <https://medium.com/artists-and-machine-intelligence/neural-nets-for-generating-music-f46dffac21c0>
--   Medium: How to Generate Music using a LSTM Neural Network in Keras <https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5>
--   Website design acquired under a free open source license from <http://w3layouts.com>
--   Headline image under CC0 1.0 Universal (CC0 1.0) Public Domain Dedication <https://pxhere.com/en/photo/1079002>
--   Background Photo credit: Rakutaro Ogiwara. Licensed under CC0 1.0 Universal (CC0 1.0) Public Domain Dedication <https://www.flickr.com/photos/arselectronica/36350783815>
+- No rights claimed to the `abcmidi` package. It was created by [leesavide](https://leesavide.github.io/) and is available at <https://github.com/leesavide/abcmidi>.
+- Classical music ABC notation from the ABC version of the Nottingham Music Database maintained by James Allwright <http://abc.sourceforge.net/NMD/>
+- Midi sound samples for pop genre downloaded from <https://freemidi.org>
+- ABC music foundation for its documentation
+- Medium: Neural Nets for Generating Music: <https://medium.com/artists-and-machine-intelligence/neural-nets-for-generating-music-f46dffac21c0>
+- Medium: How to Generate Music using a LSTM Neural Network in Keras <https://towardsdatascience.com/how-to-generate-music-using-a-lstm-neural-network-in-keras-68786834d4c5>
+- Website design acquired under a free open source license from <http://w3layouts.com>
+- Headline image under CC0 1.0 Universal (CC0 1.0) Public Domain Dedication <https://pxhere.com/en/photo/1079002>
+- Background Photo credit: Rakutaro Ogiwara. Licensed under CC0 1.0 Universal (CC0 1.0) Public Domain Dedication <https://www.flickr.com/photos/arselectronica/36350783815>
 
 </small>
