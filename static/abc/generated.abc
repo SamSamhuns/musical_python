@@ -1,12 +1,12 @@
 X:1
 T:RNN generated
-M:3/4
 L:1/8
 Q:1/4=120
 W:Generated music
+%%MIDI program 6
+% Nottingham Music Database
+S:Chris Dewhurst 1979, via Phil Rowe
+M:6/8
 K:C
-%%MIDI program 90
-"G"GBd gdB|"D"AGF "G"G2:|
-cB|"Em"BcB "Am"AFA|"Am"cBA "Em"AGE|"Am"cAA "D7"ABA|"G"G3 -G2:|
-P:B
-d|"G"g2g gag|"D"f2f fga|"D"fed cdF|"Em"G3 -G2:|
+"C"cBG cde|"G"dBG GAB|"Am"A3 -"D7"A2d|
+"G"GdB "D"AGF|"G"GBd g3|"C"ede gfe|"G"dBG "Em"GAB|"Am"A3 -A2:|

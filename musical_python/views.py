@@ -36,6 +36,6 @@ def submit(request):
 
     abc_to_midi("static/abc/generated.abc")
     messages.success(
-        request, "You can press PLAY now! (You might have to press PLAY twice)"
+        request, "You can press PLAY now! (Wait a few seconds!)"
     )
     return render(request, "main/index.html", {"random_number": random.randint(0, 1e9)})
