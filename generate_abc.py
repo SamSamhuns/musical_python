@@ -4,18 +4,12 @@
 # And a model with a deeper layers
 from tensorflow.keras.layers import LSTM, Dropout, Dense, Activation, Embedding
 from tensorflow.keras.models import Sequential
-from tensorflow.keras import backend
 import numpy as np
 import os
-import sys
 import json
 
-sys.path.append("/home/runner/.site-packages/")
 
-
-charIndex_json = "static/json/char_to_index.json"
-BATCH_SIZE = 16
-SEQ_LENGTH = 64
+CHAR_INDEX_JSON_PATH = "static/json/char_to_index.json"
 
 
 def make_model(unique_chars):
@@ -38,17 +32,18 @@ def make_model(unique_chars):
     return model
 
 
+with open(os.path.join(CHAR_INDEX_JSON_PATH)) as f:
+    char_to_index = json.load(f)
+index_to_char = {i: ch for ch, i in char_to_index.items()}
+unique_chars = len(index_to_char)
+
+# backend.clear_session()
+model = make_model(unique_chars)
+model.build(input_shape=(1, 1))
+model.load_weights("static/weights/Weights_90.h5")
+
+
 def generate_sequence(initial_index, seq_length):
-    with open(os.path.join(charIndex_json)) as f:
-        char_to_index = json.load(f)
-    index_to_char = {i: ch for ch, i in char_to_index.items()}
-    unique_chars = len(index_to_char)
-
-    backend.clear_session()
-    model = make_model(unique_chars)
-    model.build(input_shape=(1, 1))
-    model.load_weights("static/weights/Weights_90.h5")
-
     sequence_index = [initial_index]
 
     for _ in range(seq_length):
@@ -59,7 +54,6 @@ def generate_sequence(initial_index, seq_length):
         sample = np.random.choice(range(unique_chars), size=1, p=predicted_probs)
 
         sequence_index.append(sample[0])
-    print(len(sequence_index))
     seq = "".join(index_to_char[c] for c in sequence_index)
 
     cnt = 0
@@ -79,19 +73,18 @@ def generate_sequence(initial_index, seq_length):
     return seq2
 
 
-# ar = Any number between 0 to 86 which will be given as initial charcter to model for generating sequence
-# ln = The length of music sequence you want to generate. Typical number is between 300-600. Too small number will generate hardly generate any sequence
-# instr = The instrument code is detailed in static/csv/abcmidi_instrument_name
-
-
-def generate_abc_file(ar, ln, instr):
+def generate_abc_file(ar, ln, instrument_code):
+    """
+    ar = Any number between 0 to 86 which will be given as initial character to model for generating sequence
+    ln = The length of generated music sequence. Typical number is between 300-600. Too small number will generate hardly generate any sequence
+    instrument_code = The instrument code is detailed in static/csv/abcmidi_instrument_name
+    """
     ar = max(ar % 87, 0)
     ln = max(ln, 600)
-    instr = max(instr % 129, 1)
+    instrument_code = max(instrument_code % 129, 1)
 
     music = generate_sequence(ar, ln)
-    print("\nMUSIC SEQUENCE GENERATED: \n")
-    print(music)
+    print("Music sequence generated:")
 
     with open("static/abc/generated.abc", "w") as abc:
         if music.find("X:") == -1:
@@ -108,5 +101,5 @@ def generate_abc_file(ar, ln, instr):
             abc.write("W:Generated music\n")
         if music.find("K:") == -1:
             abc.write("K:C\n")
-        abc.write(f"%%MIDI program {instr}\n")
+        abc.write(f"%%MIDI program {instrument_code}\n")
         abc.write(music)

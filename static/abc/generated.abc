@@ -1,9 +1,12 @@
 X:1
 T:RNN generated
+M:3/4
 L:1/8
 Q:1/4=120
 W:Generated music
 K:C
-%%MIDI program 23
-M:D
-"D"d2D FED|"G"G2B "D7"G2A|"G"BGG "G"G2A|"G"Bcd "Am"edc|"D"d3 -d2:|
+%%MIDI program 90
+"G"GBd gdB|"D"AGF "G"G2:|
+cB|"Em"BcB "Am"AFA|"Am"cBA "Em"AGE|"Am"cAA "D7"ABA|"G"G3 -G2:|
+P:B
+d|"G"g2g gag|"D"f2f fga|"D"fed cdF|"Em"G3 -G2:|

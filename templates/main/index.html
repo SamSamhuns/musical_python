@@ -13,16 +13,6 @@
         </div>
         <div class="links">
           <ul class="links-unordered-list">
-
-            <li class="">
-              <a href="#" class="editContent">About Me</a>
-            </li>
-
-            <li class="">
-              <a href="#" class="editContent" style="outline: none; cursor: inherit;">
-                Contact Me
-              </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -65,16 +55,11 @@
             {% endif %}
             <div class="wthree-field">
               <button name="submit" type="submit" value='Submit' class="btn" style='background:#7d2c22;border-radius: 12px;'>Generate Music</button>
-              <button type="button" onClick="MIDIjs.play('{% static "midi/music.midi" %}');" class='btn' style='background:white;color:black'><i class="fa fa-play"></i> Play</button>
+              <button type="button" onClick="MIDIjs.play('{% static "midi/music.midi" %}?v={{ random_number }}');" class='btn' style='background:white;color:black'><i class="fa fa-play"></i> Play</button>
               <button type="button" onClick="MIDIjs.stop();" %}');" class='btn' style='background:#222;border-radius:100%'><i class="fa fa-stop"></i> STOP</button>
             </div>
             <br>
             <ul class="list-login-bottom">
-              <li class="">
-                <a href="#" class="editContent" style="outline: none; cursor: inherit;">
-                  GitHub
-                </a>
-              </li>
               <li class="">
                 <a href='{% url 'instruments' %}' class="text-right editContent" style="outline: none; cursor: inherit;">
                   Instrument List
@@ -87,7 +72,7 @@
           <table class="table table-bordered table-hover table-condensed">
             <tbody>
               <tr>
-                <td>1. Acous Grand Piano</td>
+                <td>1. Acoustic Grand Piano</td>
                 <td>44. Contrabass</td>
                 <td>87. Lead 7 (fifths)</td>
               </tr>
@@ -97,28 +82,28 @@
                 <td>88. Lead 8 (bass + lead)</td>
               </tr>
               <tr>
-                <td>3. Elec Grand Piano</td>
+                <td>3. Electric Grand Piano</td>
                 <td>46. Pizzicato Strings</td>
                 <td>89. Pad 1 (new age)</td>
               </tr>
               <tr>
-                <td>4. Honky-tonk Piano</td>
+                <td>4. Honky-Tonk Piano</td>
                 <td>47. Orchestral Harp</td>
                 <td>90. Pad 2 (warm)</td>
               </tr>
               <tr>
-                <td>5. Elec Piano 1</td>
+                <td>5. Electric Piano 1</td>
                 <td>48. Timpani</td>
-                <td>91. Pad 3 (polysynth)</td>
+                <td>91. Pad 3 (poly synth)</td>
               </tr>
               <tr>
-                <td>6. Elec Piano 2</td>
-                <td>49. String Ensb a</td>
+                <td>6. Electric Piano 2</td>
+                <td>49. String Ensemble a</td>
                 <td>92. Pad 4 (choir)</td>
               </tr>
               <tr>
                 <td>7. Harpsichord</td>
-                <td>50. String Ensb b</td>
+                <td>50. String Ensemble b</td>
                 <td>93. Pad 5 (bowed)</td>
               </tr>
               <tr>
@@ -207,27 +192,27 @@
                 <td>110. Bag pipe</td>
               </tr>
               <tr>
-                <td>25. Acous Guitar (nylon)</td>
+                <td>25. Acoustic Guitar (nylon)</td>
                 <td>68. Baritone Sax</td>
                 <td>111. Fiddle</td>
               </tr>
               <tr>
-                <td>26. Acous Guitar (steel)</td>
+                <td>26. Acoustic Guitar (steel)</td>
                 <td>69. Oboe</td>
                 <td>112. Shanai</td>
               </tr>
               <tr>
-                <td>27. Elec Guitar (jazz)</td>
+                <td>27. Electric Guitar (jazz)</td>
                 <td>70. English Horn</td>
                 <td>113. Tinkle Bell</td>
               </tr>
               <tr>
-                <td>28. Elec Guitar (clean)</td>
+                <td>28. Electric Guitar (clean)</td>
                 <td>71. Bassoon</td>
                 <td>114. Agogo</td>
               </tr>
               <tr>
-                <td>29. Elec Guitar (muted)</td>
+                <td>29. Electric Guitar (muted)</td>
                 <td>72. Clarinet</td>
                 <td>115. Steel Drums</td>
               </tr>
@@ -252,12 +237,12 @@
                 <td>119. Synth Drum</td>
               </tr>
               <tr>
-                <td>34. Elec Bass (finger)</td>
+                <td>34. Electric Bass (finger)</td>
                 <td>77. Blown Bottle</td>
                 <td>120. Reverse Cymbal</td>
               </tr>
               <tr>
-                <td>35. Elec Bass (pick)</td>
+                <td>35. Electric Bass (pick)</td>
                 <td>78. Shakuhachi</td>
                 <td>121. Guitar Fret Noise</td>
               </tr>
